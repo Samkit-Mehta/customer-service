@@ -27,7 +27,7 @@ public class CustomerResource {
 	@Autowired
 	private KafkaTemplate<String, Customer> kafkaTemplate;
 	
-	private static final String TOPIC = "Customer";
+	private static final String TOPIC = "customer-created";
 
 	public CustomerResource(CustomerRepository customerRepository) {
 		this.customerRepository = customerRepository;
