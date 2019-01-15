@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="customers")
@@ -15,12 +16,15 @@ public class Customer {
 	@Column(name = "id")
 	private Integer id;
 	
+	@NotNull
 	@Column(name = "email")
 	private String email;
 	
+	@NotNull
 	@Column(name = "first_name")
 	private String firstName;
 	
+	@NotNull
 	@Column(name = "last_name")
 	private String lastName;
 

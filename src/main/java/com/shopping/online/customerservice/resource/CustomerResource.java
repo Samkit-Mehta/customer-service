@@ -27,7 +27,7 @@ public class CustomerResource {
 	@Autowired
 	private KafkaTemplate<String, Customer> kafkaTemplate;
 	
-	private static final String TOPIC = "Customer Created";
+	private static final String TOPIC = "Customer";
 
 	public CustomerResource(CustomerRepository customerRepository) {
 		this.customerRepository = customerRepository;
@@ -40,8 +40,8 @@ public class CustomerResource {
 
 	@PostMapping("/customers")
 	public String add(@RequestBody final Customer customer) {
-		customerRepository.save(customer);
-		kafkaTemplate.send(TOPIC, customer);
+		Customer SavedCustomer = customerRepository.save(customer);
+		kafkaTemplate.send(TOPIC, SavedCustomer);
 		return "Customer Added Successfully";
 	}
 
