@@ -22,16 +22,13 @@ import com.shopping.online.customerservice.repository.CustomerRepository;
 @RequestMapping("/customerservice")
 public class CustomerResource {
 
+	@Autowired
 	private CustomerRepository customerRepository;
 	
 	@Autowired
 	private KafkaTemplate<String, Customer> kafkaTemplate;
 	
 	private static final String TOPIC = "customer-created";
-
-	public CustomerResource(CustomerRepository customerRepository) {
-		this.customerRepository = customerRepository;
-	}
 	
 	@GetMapping("/customers")
 	public List<Customer> getCustomers() {

@@ -32,6 +32,14 @@ public class Customer {
 
 	}
 
+	public Customer(Integer id, @NotNull String email, @NotNull String firstName, @NotNull String lastName) {
+		super();
+		this.id = id;
+		this.email = email;
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
+
 	public Integer getId() {
 		return id;
 	}
